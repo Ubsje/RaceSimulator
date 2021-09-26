@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 
 namespace RaceSimulator
 {
@@ -6,7 +7,9 @@ namespace RaceSimulator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Data.Initialize();
+            Data.NextRace();
+            Console.WriteLine($"Track naam: {Data.CurrentRace.Track.Name}");
         }
     }
 }
