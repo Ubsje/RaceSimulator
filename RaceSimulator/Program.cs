@@ -9,7 +9,9 @@ namespace RaceSimulator
         {
             Data.Initialize();
             Data.NextRace();
-            Console.WriteLine($"Track naam: {Data.CurrentRace.Track.Name}");
+            Visualisation.Initialize();
+            Visualisation.DrawTrack(Data.CurrentRace.Track);
+            Console.SetCursorPosition(0, Console.WindowHeight);
         }
     }
 }

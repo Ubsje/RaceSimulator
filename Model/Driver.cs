@@ -16,5 +16,10 @@ namespace Model
         public int Points { get => _Points; set => _Points = value; }
         public IEquipment IEquipment { get => _IEquipment; set => _IEquipment = value; }
         public IParticipant.TeamColors TeamColor { get => _TeamColor; set => _TeamColor = value; }
+
+        public Driver(string name)
+        {
+            Name = name;
+        }
     }
 }

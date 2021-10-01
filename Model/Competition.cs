@@ -16,5 +16,9 @@ namespace Model
                 return null;
             return Tracks.Dequeue();
         }
+        public Competition()
+        {
+            Tracks = new Queue<Track>();
+        }
     }
 }

@@ -13,14 +13,22 @@ namespace Model
         public LinkedList<Section> Sections { get; set; }
         public Track(string name, SectionTypes[] sections)
         {
-            Sections = new LinkedList<Section>();
+            Sections = AddSections(sections);
             this.Name = name;
+            
+        }
+        private LinkedList<Section> AddSections(Section.SectionTypes[] sections)
+        {
+            LinkedList < Section > sects = new LinkedList<Section>();
+
             for (int i = 0; i < sections.Length; i++)
             {
                 Section s = new Section();
                 s.SectionType = sections[i];
-                this.Sections.AddLast(s);
+                sects.AddLast(s);
             }
+
+            return sects;
         }
     }
 }
