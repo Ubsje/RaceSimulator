@@ -80,8 +80,12 @@ namespace RaceSimulator
 
         }
 
-        public static void DrawTrack(Track track)
+        public static void DrawTrack(Track track, ConsoleColor grasscolor, ConsoleColor trackcolor, ConsoleColor edgecolor)
         {
+            FillScreenWithColor(grasscolor);
+            Console.BackgroundColor = trackcolor;
+            Console.ForegroundColor = edgecolor;
+
             dir = 0;
             x = 3;
             y = 2;
@@ -92,11 +96,7 @@ namespace RaceSimulator
                 switch (section.SectionType)
                 {
                     case SectionTypes.Straight:
-                        if (dir == 0)
-                            DrawSectionAt(_straightVertical, x, y);
-                        else if (dir == 1)
-                            DrawSectionAt(_straightHorizontal, x, y);
-                        else if (dir == 2)
+                        if (dir == 0 || dir == 2)
                             DrawSectionAt(_straightVertical, x, y);
                         else
                             DrawSectionAt(_straightHorizontal, x, y);
@@ -134,11 +134,7 @@ namespace RaceSimulator
                             DrawSectionAt(_startLeft, x, y);
                         break;
                     case SectionTypes.Finish:
-                        if (dir == 0)
-                            DrawSectionAt(_finishVertical, x, y);
-                        else if (dir == 1)
-                            DrawSectionAt(_finishHorizontal, x, y);
-                        else if (dir == 2)
+                        if (dir == 0 || dir == 2)
                             DrawSectionAt(_finishVertical, x, y);
                         else
                             DrawSectionAt(_finishHorizontal, x, y);
@@ -186,6 +182,13 @@ namespace RaceSimulator
             output = output.Replace('2', c2);
 
             return output;
+        }
+
+        static void FillScreenWithColor(ConsoleColor color)
+        {
+            Console.BackgroundColor = color;
+            for (int i = 0; i < Console.WindowHeight * Console.WindowWidth; i++)
+                    Console.Write(" ");
         }
     }
 }
