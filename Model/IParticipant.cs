@@ -17,5 +17,6 @@ namespace Model
         public int Points { get; set; }
         public IEquipment IEquipment { get; set; }
         public TeamColors TeamColor { get; set; }
+        public int RoundsDriven { get; set; }
     }
 }

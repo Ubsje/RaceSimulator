@@ -51,7 +51,28 @@ namespace Controller
                     SectionTypes.Straight,
                     SectionTypes.RightCorner
                     }));
-            Competition.Tracks.Enqueue(new Track("track2", new Section.SectionTypes[1]));
+            Competition.Tracks.Enqueue(new Track("track2", new Section.SectionTypes[] {
+                    SectionTypes.RightCorner,
+                    SectionTypes.StartGrid,
+                    SectionTypes.StartGrid,
+                    SectionTypes.Finish,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner
+                    }));
         }
         public static void NextRace()
         {

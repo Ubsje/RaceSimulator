@@ -80,11 +80,14 @@ namespace RaceSimulator
 
         }
 
-        public static void DrawTrack(Track track, ConsoleColor grasscolor, ConsoleColor trackcolor, ConsoleColor edgecolor)
+        public static void OnDriversChanged(object sender, DriversChangedEventArgs eventArgs)
         {
-            FillScreenWithColor(grasscolor);
-            Console.BackgroundColor = trackcolor;
-            Console.ForegroundColor = edgecolor;
+            DrawTrack(eventArgs.Track);
+        }
+
+        public static void DrawTrack(Track track)
+        {
+            FillScreenWithColor(ConsoleColor.Black);
 
             dir = 0;
             x = 3;
@@ -187,8 +190,10 @@ namespace RaceSimulator
         static void FillScreenWithColor(ConsoleColor color)
         {
             Console.BackgroundColor = color;
-            for (int i = 0; i < Console.WindowHeight * Console.WindowWidth; i++)
-                    Console.Write(" ");
+            StringBuilder sb = new StringBuilder();
+            sb.Append(' ', Console.WindowHeight * Console.WindowWidth);
+            Console.SetCursorPosition(0, 0);
+            Console.Write(sb.ToString());
         }
     }
 }

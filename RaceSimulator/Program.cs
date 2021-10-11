@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Model;
 using System;
 
 namespace RaceSimulator
@@ -9,8 +10,14 @@ namespace RaceSimulator
         {
             Data.Initialize();
             Data.NextRace();
+
+            //DriversChangedEventArgs eventArgs = new DriversChangedEventArgs();
+            //eventArgs.Track = Data.CurrentRace.Track;
+            Data.CurrentRace.DriversChanged += Visualisation.OnDriversChanged;
+
             Visualisation.Initialize();
-            Visualisation.DrawTrack(Data.CurrentRace.Track, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Black);
+
+            Console.ReadLine();
             Console.SetCursorPosition(0, Console.WindowHeight);
         }
     }
