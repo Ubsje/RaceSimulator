@@ -20,6 +20,7 @@ namespace Controller
         private Timer timer;
 
         public event EventHandler<DriversChangedEventArgs> DriversChanged;
+        public static event EventHandler RaceStarted;
         public SectionData GetSectionData(Section section)
         {
             if (!_positions.ContainsKey(section))
@@ -53,6 +54,13 @@ namespace Controller
 
                     if (next != null)
                     {
+                        if (!next.IEquipment.IsBroken)
+                            if (_random.Next(0, next.IEquipment.Quality) == 0)
+                            {
+                                next.IEquipment.IsBroken = true;
+                                next.IEquipment.Speed = Math.Max(20, (int)(next.IEquipment.Speed * .9f));
+                            }
+
                         if (sd.Left == null)
                         {
                             sd.Left = next;
@@ -106,38 +114,42 @@ namespace Controller
                 
                 if (sd.Left != null)
                 {
-                    if (sd.Left.RoundsDriven >= 3)
+                    if (sd.Left.RoundsDriven >= 1)
                     {
                         sd.Left = null;
                         racers--;
                     }
-                    else
+                    else if (!sd.Left.IEquipment.IsBroken)
                     {
                         sd.DistanceLeft += sd.Left.IEquipment.Speed * sd.Left.IEquipment.Performance;
                         if (sd.DistanceLeft >= sectionLength)
                             left = sd.Left;
                     }
+                    else if (_random.Next(0, 8) == 0)
+                        sd.Left.IEquipment.IsBroken = false;
                 } 
                 
                 if (sd.Right != null)
                 {
-                    if (sd.Right.RoundsDriven >= 3)
+                    if (sd.Right.RoundsDriven >= 1)
                     {
                         sd.Right = null;
                         racers--;
                     }
-                    else
+                    else if (!sd.Right.IEquipment.IsBroken)
                     {
                         sd.DistanceRight += sd.Right.IEquipment.Speed * sd.Right.IEquipment.Performance;
                         if (sd.DistanceRight >= sectionLength)
                             right = sd.Right;
                     }
+                    else if (_random.Next(0, 8) == 0)
+                        sd.Right.IEquipment.IsBroken = false;
                 }
 
                 lastSection = section;
             }
 
-            if (moved = true)
+            if (moved == true)
             {
                 DriversChangedEventArgs eventArgs = new DriversChangedEventArgs(Track);
                 DriversChanged.Invoke(this, eventArgs);
@@ -145,8 +157,8 @@ namespace Controller
 
             if (racers <= 0)
             {
-                timer.Stop();
                 CleanUp();
+                timer.Stop();
                 Data.NextRace();
             }
         }
@@ -154,6 +166,10 @@ namespace Controller
         public void Start()
         {
             timer.Start();
+        }
+        public void SetupDriversChanged()
+        {
+            RaceStarted.Invoke(null, null);
         }
 
         public void CleanUp()
@@ -197,6 +213,8 @@ namespace Controller
             {
                 unplaced += 1;
                 racers += 1;
+
+                driver.RoundsDriven = -1;
             }
 
             foreach (Section section in Track.Sections)

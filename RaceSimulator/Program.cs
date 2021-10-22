@@ -8,12 +8,14 @@ namespace RaceSimulator
     {
         static void Main(string[] args)
         {
+            Race.RaceStarted += Visualisation.OnRaceStarted;
+
             Data.Initialize();
             Data.NextRace();
 
             //DriversChangedEventArgs eventArgs = new DriversChangedEventArgs();
             //eventArgs.Track = Data.CurrentRace.Track;
-            Data.CurrentRace.DriversChanged += Visualisation.OnDriversChanged;
+            
 
             Visualisation.Initialize();
 

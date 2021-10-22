@@ -22,7 +22,6 @@ namespace Model
         public Driver(string name)
         {
             Name = name;
-            RoundsDriven = -1;
         }
     }
 }

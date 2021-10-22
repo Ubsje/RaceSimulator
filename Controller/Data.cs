@@ -53,32 +53,31 @@ namespace Controller
                     }));
             Competition.Tracks.Enqueue(new Track("track2", new Section.SectionTypes[] {
                     SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
                     SectionTypes.StartGrid,
                     SectionTypes.StartGrid,
                     SectionTypes.Finish,
+                    SectionTypes.RightCorner,
                     SectionTypes.Straight,
-                    SectionTypes.LeftCorner,
-                    SectionTypes.RightCorner,
-                    SectionTypes.RightCorner,
                     SectionTypes.Straight,
                     SectionTypes.Straight,
                     SectionTypes.RightCorner,
                     SectionTypes.Straight,
-                    SectionTypes.LeftCorner,
-                    SectionTypes.RightCorner,
-                    SectionTypes.RightCorner,
                     SectionTypes.Straight,
-                    SectionTypes.LeftCorner,
-                    SectionTypes.Straight,
-                    SectionTypes.Straight,
-                    SectionTypes.RightCorner
+                    SectionTypes.Straight
                     }));
         }
         public static void NextRace()
         {
             Track t = Competition.NextTrack();
             if (t != null)
+            {
                 CurrentRace = new Race(t, Competition.Participants);
+                CurrentRace.SetupDriversChanged();
+            }
         }
     }
 }

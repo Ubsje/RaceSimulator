@@ -77,12 +77,17 @@ namespace RaceSimulator
         #endregion
         public static void Initialize()
         {
-
+            
         }
 
         public static void OnDriversChanged(object sender, DriversChangedEventArgs eventArgs)
         {
             DrawTrack(eventArgs.Track);
+        }
+
+        public static void OnRaceStarted(object sender, EventArgs args)
+        {
+            Data.CurrentRace.DriversChanged += OnDriversChanged;
         }
 
         public static void DrawTrack(Track track)
@@ -177,9 +182,19 @@ namespace RaceSimulator
             char c2 = ' ';
 
             if (left != null)
-                c1 = left.Name.ToCharArray()[0];
+            {
+                if (left.IEquipment.IsBroken)
+                    c1 = '#';
+                else
+                    c1 = left.Name.ToCharArray()[0];
+            }
             if (right != null)
-                c2 = right.Name.ToCharArray()[0];
+            {
+                if (right.IEquipment.IsBroken)
+                    c2 = '#';
+                else
+                    c2 = right.Name.ToCharArray()[0];
+            }
 
             output = output.Replace('1', c1);
             output = output.Replace('2', c2);
