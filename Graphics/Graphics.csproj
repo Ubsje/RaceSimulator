@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\cornerDownLeft.png" />
+    <None Remove="Images\cornerDownRight.png" />
+    <None Remove="Images\cornerUpLeft.png" />
+    <None Remove="Images\cornerUpRight.png" />
+    <None Remove="Images\finishHorizontal.png" />
+    <None Remove="Images\finishVertical.png" />
+    <None Remove="Images\racerBlue.png" />
+    <None Remove="Images\racerBroken.png" />
+    <None Remove="Images\racerGreen.png" />
+    <None Remove="Images\racerGrey.png" />
+    <None Remove="Images\racerRed.png" />
+    <None Remove="Images\racerYellow.png" />
+    <None Remove="Images\startDown.png" />
+    <None Remove="Images\startLeft.png" />
+    <None Remove="Images\startRight.png" />
+    <None Remove="Images\startUp.png" />
+    <None Remove="Images\straightHorizontal.png" />
+    <None Remove="Images\straightVertical.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\cornerDownLeft.png" />
+    <Content Include="Images\cornerDownRight.png" />
+    <Content Include="Images\cornerUpLeft.png" />
+    <Content Include="Images\cornerUpRight.png" />
+    <Content Include="Images\finishHorizontal.png" />
+    <Content Include="Images\finishVertical.png" />
+    <Content Include="Images\racerBlue.png" />
+    <Content Include="Images\racerBroken.png" />
+    <Content Include="Images\racerGreen.png" />
+    <Content Include="Images\racerGrey.png" />
+    <Content Include="Images\racerRed.png" />
+    <Content Include="Images\racerYellow.png" />
+    <Content Include="Images\startDown.png" />
+    <Content Include="Images\startLeft.png" />
+    <Content Include="Images\startRight.png" />
+    <Content Include="Images\startUp.png" />
+    <Content Include="Images\straightHorizontal.png" />
+    <Content Include="Images\straightVertical.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+
+</Project>
