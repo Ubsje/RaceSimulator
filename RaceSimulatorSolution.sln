@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controller", "Controller\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControllerTest", "ControllerTest\ControllerTest.csproj", "{5112E129-02C6-4173-992A-AA5A34E9E75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics", "Graphics\Graphics.csproj", "{78C93A05-D989-4405-8C87-21E834E80539}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics", "Graphics\Graphics.csproj", "{78C93A05-D989-4405-8C87-21E834E80539}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C833E2C-0A88-43E0-80C1-6E34D5CD6F0F} = {4C833E2C-0A88-43E0-80C1-6E34D5CD6F0F}
+		{B9867767-E316-4A95-852E-CA15D1F427FE} = {B9867767-E316-4A95-852E-CA15D1F427FE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

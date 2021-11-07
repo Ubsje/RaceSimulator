@@ -19,9 +19,10 @@ namespace Model
         public IParticipant.TeamColors TeamColor { get => _TeamColor; set => _TeamColor = value; }
         public int RoundsDriven { get => _RoundDriven; set => _RoundDriven = value; }
 
-        public Driver(string name)
+        public Driver(string name, IParticipant.TeamColors color)
         {
             Name = name;
+            TeamColor = color;
         }
     }
 }

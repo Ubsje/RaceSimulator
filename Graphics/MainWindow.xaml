@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF1E762E">
-        <Image Margin="35,75,35,35"/>
+        <Image x:Name="WindowImage" Margin="35,75,35,35"/>
 
     </Grid>
 </Window>

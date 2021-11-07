@@ -127,6 +127,8 @@ namespace Controller
                     }
                     else if (_random.Next(0, 8) == 0)
                         sd.Left.IEquipment.IsBroken = false;
+
+                    moved = true;
                 } 
                 
                 if (sd.Right != null)
@@ -144,6 +146,8 @@ namespace Controller
                     }
                     else if (_random.Next(0, 8) == 0)
                         sd.Right.IEquipment.IsBroken = false;
+
+                    moved = true;
                 }
 
                 lastSection = section;
@@ -201,7 +205,7 @@ namespace Controller
                 Car c = new Car();
                 c.Quality = _random.Next(1, 100);
                 c.Performance = _random.Next(1, 2);
-                c.Speed = _random.Next(50, 60);
+                c.Speed = _random.Next(40, 60);
                 Participants[i].IEquipment = c;
             }
         }

@@ -13,10 +13,6 @@ namespace RaceSimulator
             Data.Initialize();
             Data.NextRace();
 
-            //DriversChangedEventArgs eventArgs = new DriversChangedEventArgs();
-            //eventArgs.Track = Data.CurrentRace.Track;
-            
-
             Visualisation.Initialize();
 
             Console.ReadLine();

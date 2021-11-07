@@ -14,11 +14,11 @@ namespace Graphics
     {
         static private Dictionary<string, Bitmap> cache = new Dictionary<string, Bitmap>();
 
-        static Bitmap GetImage(string url)
+        public static Bitmap GetImage(string url)
         {
             if (!cache.ContainsKey(url))
             {
-                string filePath = $"Images/{url}";
+                string filePath = $"{url}";
                 cache.Add(url, new Bitmap(Image.FromFile(filePath)));
             }
 
@@ -30,20 +30,19 @@ namespace Graphics
             cache.Clear();
         }
 
-        static Bitmap Empty(int x, int y)
+        public static Bitmap Empty(int x, int y)
         {
             if (!cache.ContainsKey("empty"))
             {
                 Bitmap bitmap = new Bitmap(x, y);
-                System.Drawing.Graphics g;
-                g = System.Drawing.Graphics.FromImage(bitmap);
-                g.Clear(System.Drawing.Color.Green);
-                bitmap = new Bitmap(x, y, g);
+                using (System.Drawing.Graphics gfx = System.Drawing.Graphics.FromImage(bitmap))
+                using (SolidBrush brush = new SolidBrush(System.Drawing.Color.FromArgb(0, 155, 0)))
+                {
+                    gfx.FillRectangle(brush, 0, 0, x, y);
+                }
                 cache.Add("empty", bitmap);
             }
-
-            Bitmap b = (Bitmap)cache["empty"].Clone();
-            return b;
+            return (Bitmap)cache["empty"].Clone();
         }
 
         public static BitmapSource CreateBitmapSourceFromGdiBitmap(Bitmap bitmap)

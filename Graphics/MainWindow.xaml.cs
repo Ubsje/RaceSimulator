@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controller;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Graphics
 {
@@ -20,9 +23,19 @@ namespace Graphics
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow main;
         public MainWindow()
         {
             InitializeComponent();
+
+            main = this;
+
+            Race.RaceStarted += Visualisation.OnRaceStarted;
+
+            Data.Initialize();
+            Data.NextRace();
+
+            Visualisation.Initialize();
         }
     }
 }
