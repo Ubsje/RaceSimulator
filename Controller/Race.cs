@@ -205,7 +205,7 @@ namespace Controller
                 Car c = new Car();
                 c.Quality = _random.Next(1, 100);
                 c.Performance = _random.Next(1, 2);
-                c.Speed = _random.Next(40, 60);
+                c.Speed = _random.Next(10, 20);
                 Participants[i].IEquipment = c;
             }
         }

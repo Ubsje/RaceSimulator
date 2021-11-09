@@ -241,7 +241,8 @@ namespace Graphics
                     _y *= 64;
 
                     graphics.DrawImage(ImageLoader.GetImage(imageName), new Point((int)_x, (int)_y));
-                } else
+                } 
+                else
                 {
                     Bitmap image = (Bitmap)ImageLoader.GetImage(imageName).Clone();
 

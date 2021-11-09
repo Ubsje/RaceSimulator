@@ -24,6 +24,8 @@ namespace Graphics
     public partial class MainWindow : Window
     {
         public static MainWindow main;
+        private RaceWindow raceWindow;
+        private CompetitionWindow competitionWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +38,23 @@ namespace Graphics
             Data.NextRace();
 
             Visualisation.Initialize();
+        }
+
+        private void MenuItem_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Competition_Click(object sender, RoutedEventArgs e)
+        {
+            competitionWindow = new CompetitionWindow();
+            competitionWindow.Show();
+        }
+
+        private void MenuItem_Race_Click(object sender, RoutedEventArgs e)
+        {
+            raceWindow = new RaceWindow();
+            raceWindow.Show();
         }
     }
 }

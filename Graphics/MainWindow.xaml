@@ -6,8 +6,21 @@
         xmlns:local="clr-namespace:Graphics"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:DataContext/>
+    </Window.DataContext>
     <Grid Background="#FF1E762E">
         <Image x:Name="WindowImage" Margin="35,75,35,35"/>
+        <DockPanel LastChildFill="False">
+            <Menu Width="200" DockPanel.Dock="Top" Height="20">
+                <MenuItem Header="Menu">
+                    <MenuItem Header="Race Statistieken" Click="MenuItem_Race_Click"/>
+                    <MenuItem Header="Competitie Statistieken" Click="MenuItem_Competition_Click"/>
+                    <MenuItem Header="Applicatie Sluiten" Click="MenuItem_Exit_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Label Content="{Binding CurrentTrack, Mode=OneWay}" Margin="10,20,10,0" Height="64" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
