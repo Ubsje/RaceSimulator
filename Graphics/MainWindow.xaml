@@ -13,7 +13,7 @@
         <Image x:Name="WindowImage" Margin="35,75,35,35"/>
         <DockPanel LastChildFill="False">
             <Menu Width="200" DockPanel.Dock="Top" Height="20">
-                <MenuItem Header="Menu">
+                <MenuItem Header="Menu" Width="200" Height="20">
                     <MenuItem Header="Race Statistieken" Click="MenuItem_Race_Click"/>
                     <MenuItem Header="Competitie Statistieken" Click="MenuItem_Competition_Click"/>
                     <MenuItem Header="Applicatie Sluiten" Click="MenuItem_Exit_Click"/>

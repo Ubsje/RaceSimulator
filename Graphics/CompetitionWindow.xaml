@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Graphics"
         mc:Ignorable="d"
-        Title="CompetitionWindow" Height="450" Width="800">
+        Title="CompetitionWindow" Height="350" Width="350" ResizeMode="NoResize" Topmost="True">
+    <Window.DataContext>
+        <local:DataContext/>
+    </Window.DataContext>
     <Grid>
-        
+        <Label Content="Competitie" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center" Width="188"/>
+        <Label Content="{Binding Tracklist, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Height="93" Width="330"/>
+        <Label Content="{Binding RacerPoints, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,159,0,0" VerticalAlignment="Top" Height="165" Width="330"/>
+
     </Grid>
 </Window>

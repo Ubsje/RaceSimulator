@@ -34,6 +34,7 @@ namespace Controller
 
         private int sectionLength = 100;
         private int racers;
+        private int totalRacers;
 
         public void OnTimedEvent(object obj, EventArgs e)
         {
@@ -114,8 +115,9 @@ namespace Controller
                 
                 if (sd.Left != null)
                 {
-                    if (sd.Left.RoundsDriven >= 1)
+                    if (sd.Left.RoundsDriven >= 3)
                     {
+                        sd.Left.Points += Math.Max(0, 3 - (totalRacers - racers));
                         sd.Left = null;
                         racers--;
                     }
@@ -133,8 +135,9 @@ namespace Controller
                 
                 if (sd.Right != null)
                 {
-                    if (sd.Right.RoundsDriven >= 1)
+                    if (sd.Right.RoundsDriven >= 3)
                     {
+                        sd.Right.Points += Math.Max(0, 3 - (totalRacers - racers));
                         sd.Right = null;
                         racers--;
                     }
@@ -204,8 +207,8 @@ namespace Controller
             {
                 Car c = new Car();
                 c.Quality = _random.Next(1, 100);
-                c.Performance = _random.Next(1, 2);
-                c.Speed = _random.Next(10, 20);
+                c.Performance = _random.Next(1, 3);
+                c.Speed = _random.Next(30, 40);
                 Participants[i].IEquipment = c;
             }
         }
@@ -220,6 +223,7 @@ namespace Controller
 
                 driver.RoundsDriven = -1;
             }
+            totalRacers = racers;
 
             foreach (Section section in Track.Sections)
                 if (section.SectionType == SectionTypes.StartGrid)
