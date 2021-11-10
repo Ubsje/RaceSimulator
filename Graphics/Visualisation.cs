@@ -36,6 +36,7 @@ namespace Graphics
         private const string _racerGrey = ".\\Images\\racerGrey.png";
         private const string _racerRed = ".\\Images\\racerRed.png";
         private const string _racerYellow = ".\\Images\\racerYellow.png";
+        private const string _background = ".\\Images\\background.png";
         #endregion
         public static void Initialize()
         {
@@ -59,6 +60,7 @@ namespace Graphics
         public static BitmapSource DrawTrack(Track track)
         {
             Bitmap image = ImageLoader.Empty(1280, 640);
+            DrawImageAt(ref image, _background, 0, 0, false, -1);
 
             dir = 0;
             x = 3;

@@ -22,14 +22,32 @@ namespace Controller
         }
         public static void AddParticipants()
         {
-            Competition.Participants.Add(new Driver("Arnold", IParticipant.TeamColors.Red));
+            Competition.Participants.Add(new Driver("Arie", IParticipant.TeamColors.Red));
             Competition.Participants.Add(new Driver("Bert", IParticipant.TeamColors.Blue));
             Competition.Participants.Add(new Driver("Cherard", IParticipant.TeamColors.Green));
-            Competition.Participants.Add(new Driver("D", IParticipant.TeamColors.Yellow));
+            Competition.Participants.Add(new Driver("Dadelman", IParticipant.TeamColors.Yellow));
         }
         public static void AddTracks()
         {
-            Competition.Tracks.Enqueue(new Track("De Ubsje Race", new Section.SectionTypes[] {
+            Competition.Tracks.Enqueue(new Track("Lijpe track", new Section.SectionTypes[] {
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.StartGrid,
+                    SectionTypes.StartGrid,
+                    SectionTypes.Finish,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight
+                    }));
+            Competition.Tracks.Enqueue(new Track("De Ubsje track", new Section.SectionTypes[] {
                     SectionTypes.RightCorner,
                     SectionTypes.StartGrid,
                     SectionTypes.StartGrid,
@@ -51,24 +69,91 @@ namespace Controller
                     SectionTypes.Straight,
                     SectionTypes.RightCorner
                     }));
-            Competition.Tracks.Enqueue(new Track("Lijpe track", new Section.SectionTypes[] {
+            Competition.Tracks.Enqueue(new Track("De grote negerbaan", new Section.SectionTypes[] {
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
                     SectionTypes.RightCorner,
                     SectionTypes.Straight,
                     SectionTypes.Straight,
                     SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
                     SectionTypes.RightCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
                     SectionTypes.StartGrid,
                     SectionTypes.StartGrid,
                     SectionTypes.Finish,
                     SectionTypes.RightCorner,
-                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
                     SectionTypes.Straight,
                     SectionTypes.Straight,
                     SectionTypes.RightCorner,
                     SectionTypes.Straight,
                     SectionTypes.Straight,
-                    SectionTypes.Straight
+                    SectionTypes.RightCorner,
+                    SectionTypes.RightCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.LeftCorner,
+                    SectionTypes.RightCorner
                     }));
+            
         }
         public static void NextRace()
         {

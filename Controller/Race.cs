@@ -59,7 +59,7 @@ namespace Controller
                             if (_random.Next(0, next.IEquipment.Quality) == 0)
                             {
                                 next.IEquipment.IsBroken = true;
-                                next.IEquipment.Speed = Math.Max(20, (int)(next.IEquipment.Speed * .9f));
+                                next.IEquipment.Speed = Math.Max(5, (int)(next.IEquipment.Speed * .9f));
                             }
 
                         if (sd.Left == null)
@@ -126,6 +126,8 @@ namespace Controller
                         sd.DistanceLeft += sd.Left.IEquipment.Speed * sd.Left.IEquipment.Performance;
                         if (sd.DistanceLeft >= sectionLength)
                             left = sd.Left;
+                        if (sd.DistanceLeft > 2 * sectionLength)
+                            sd.DistanceLeft = 2 * sectionLength;
                     }
                     else if (_random.Next(0, 8) == 0)
                         sd.Left.IEquipment.IsBroken = false;
@@ -146,6 +148,8 @@ namespace Controller
                         sd.DistanceRight += sd.Right.IEquipment.Speed * sd.Right.IEquipment.Performance;
                         if (sd.DistanceRight >= sectionLength)
                             right = sd.Right;
+                        if (sd.DistanceRight > 2 * sectionLength)
+                            sd.DistanceRight = 2 * sectionLength;
                     }
                     else if (_random.Next(0, 8) == 0)
                         sd.Right.IEquipment.IsBroken = false;
@@ -193,7 +197,7 @@ namespace Controller
             RandomizeEquipment();
             PlaceParticipants();
 
-            timer = new Timer(500);
+            timer = new Timer(50);
             timer.Elapsed += OnTimedEvent;
 
             lastSection = Track.Sections.Last();
@@ -207,8 +211,8 @@ namespace Controller
             {
                 Car c = new Car();
                 c.Quality = _random.Next(1, 100);
-                c.Performance = _random.Next(1, 3);
-                c.Speed = _random.Next(30, 40);
+                c.Performance = _random.Next(1, 2);
+                c.Speed = _random.Next(5, 10);
                 Participants[i].IEquipment = c;
             }
         }
@@ -231,7 +235,10 @@ namespace Controller
                         if (unplaced > 0)
                         {
                             if (unplaced % 2 == 1)
+                            {
                                 GetSectionData(section).Left = Participants[unplaced - 1];
+                                GetSectionData(section).DistanceLeft = 50;
+                            }
                             else
                                 GetSectionData(section).Right = Participants[unplaced - 1];
 

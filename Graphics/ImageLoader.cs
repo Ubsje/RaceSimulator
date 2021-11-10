@@ -36,7 +36,7 @@ namespace Graphics
             {
                 Bitmap bitmap = new Bitmap(x, y);
                 using (System.Drawing.Graphics gfx = System.Drawing.Graphics.FromImage(bitmap))
-                using (SolidBrush brush = new SolidBrush(System.Drawing.Color.FromArgb(0, 155, 0)))
+                using (SolidBrush brush = new SolidBrush(System.Drawing.Color.FromArgb(112, 56, 11)))
                 {
                     gfx.FillRectangle(brush, 0, 0, x, y);
                 }

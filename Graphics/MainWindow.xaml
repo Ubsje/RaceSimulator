@@ -9,8 +9,8 @@
     <Window.DataContext>
         <local:DataContext/>
     </Window.DataContext>
-    <Grid Background="#FF1E762E">
-        <Image x:Name="WindowImage" Margin="35,75,35,35"/>
+    <Grid Background="#FF70380B">
+        <Image x:Name="WindowImage" Margin="15,75,15,15"/>
         <DockPanel LastChildFill="False">
             <Menu Width="200" DockPanel.Dock="Top" Height="20">
                 <MenuItem Header="Menu" Width="200" Height="20">
@@ -20,7 +20,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <Label Content="{Binding CurrentTrack, Mode=OneWay}" Margin="10,20,10,0" Height="64" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center"/>
+        <Label Content="{Binding CurrentTrack, Mode=OneWay}" Margin="10,20,10,0" Height="64" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center" Foreground="White"/>
 
     </Grid>
 </Window>
