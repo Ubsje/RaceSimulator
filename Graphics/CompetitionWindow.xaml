@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Graphics"
         mc:Ignorable="d"
-        Title="CompetitionWindow" Height="350" Width="350" ResizeMode="NoResize" Topmost="True">
+        Title="Competitie statistieken" Height="350" Width="350" ResizeMode="NoResize" Topmost="True">
     <Window.DataContext>
         <local:DataContext/>
     </Window.DataContext>

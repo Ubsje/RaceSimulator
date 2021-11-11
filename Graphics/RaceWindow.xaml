@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Graphics"
         xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="Graphics.RaceWindow"
         mc:Ignorable="d"
-        Title="RaceWindow" Height="350" Width="350" ResizeMode="NoResize" Topmost="True">
+        Title="Race statistieken" Height="350" Width="350" ResizeMode="NoResize" Topmost="True">
     <Window.DataContext>
         <local:DataContext/>
     </Window.DataContext>
