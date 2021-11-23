@@ -115,7 +115,7 @@ namespace Controller
                 
                 if (sd.Left != null)
                 {
-                    if (sd.Left.RoundsDriven >= 3)
+                    if (sd.Left.RoundsDriven >= 2)
                     {
                         sd.Left.Points += Math.Max(0, 3 - (totalRacers - racers));
                         sd.Left = null;
@@ -137,7 +137,7 @@ namespace Controller
                 
                 if (sd.Right != null)
                 {
-                    if (sd.Right.RoundsDriven >= 3)
+                    if (sd.Right.RoundsDriven >= 2)
                     {
                         sd.Right.Points += Math.Max(0, 3 - (totalRacers - racers));
                         sd.Right = null;
@@ -202,17 +202,15 @@ namespace Controller
 
             lastSection = Track.Sections.Last();
             sectionLength = 100;
-
-            Start();
         }
         public void RandomizeEquipment()
         {
             for (int i = 0; i < Participants.Count(); i++)
             {
                 Car c = new Car();
-                c.Quality = _random.Next(1, 100);
-                c.Performance = _random.Next(1, 2);
-                c.Speed = _random.Next(5, 10);
+                c.Quality = _random.Next(30, 90);
+                c.Performance = _random.Next(1, 3);
+                c.Speed = _random.Next(16, 20);
                 Participants[i].IEquipment = c;
             }
         }

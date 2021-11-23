@@ -174,7 +174,7 @@ namespace RaceSimulator
                 x -= 1;
         }
 
-        static string PlaceParticipants(string str, IParticipant left, IParticipant right)
+        public static string PlaceParticipants(string str, IParticipant left, IParticipant right)
         {
             string output = str;
 
